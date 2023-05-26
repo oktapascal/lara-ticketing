@@ -1,0 +1,9 @@
+.text-white {
+    color: #ffffff;
+}
+
+.btn-primary {
+    --bs-btn-bg: #375CB4;
+    --bs-btn-hover-bg: #3152A2;
+    --bs-btn-active-bg: #2C4991;
+}
