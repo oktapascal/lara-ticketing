@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Services\Auth\AuthServices;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\RedirectResponse;
 
@@ -17,12 +19,19 @@ class AuthController extends Controller
         $this->_authServices = $authServices;
     }
 
-    public function signIn(LoginRequest $request): RedirectResponse
+    public function signIn(LoginRequest $request): void
     {
-        $data = $request->validated();
+        $request->validated();
 
-//        $this->_authServices->signIn($data);
+        $this->_authServices->signIn($request);
+    }
 
-        return Redirect::route("test");
+    public function signOut(Request $request): RedirectResponse
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return Redirect::route('page.login');
     }
 }

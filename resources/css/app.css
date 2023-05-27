@@ -6,4 +6,21 @@
     --bs-btn-bg: #375CB4;
     --bs-btn-hover-bg: #3152A2;
     --bs-btn-active-bg: #2C4991;
+    --bs-btn-disabled-bg: #274182;
 }
+
+.btn-outline-danger {
+    --bs-btn-border-color: #900604;
+    --bs-btn-color: #900604;
+    --bs-btn-hover-bg: #810503;
+    --bs-btn-hover-border-color: #810503;
+    --bs-btn-active-bg: #730403;
+    --bs-btn-active-border-color: #730403;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: unset;
+    pointer-events: initial;
+}
+

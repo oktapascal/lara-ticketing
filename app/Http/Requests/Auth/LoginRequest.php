@@ -11,7 +11,7 @@ class LoginRequest extends FormRequest
      *
      * @var string
      */
-    protected $redirectRoute = 'showLoginPage';
+    protected $redirectRoute = 'page.login';
 
     /**
      * Determine if the user is authorized to make this request.

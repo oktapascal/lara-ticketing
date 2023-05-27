@@ -5,13 +5,19 @@
         typeButton: {
             type: String,
             default: "button"
+        },
+        disabledButton: {
+            type: Boolean,
+            default: false
         }
     })
 </script>
 
 <template>
 <div class="button-container d-grid gap-2">
-    <button :type="typeButton" class="btn" :class="className">{{ text }}</button>
+    <button :type="typeButton" class="btn" :class="className" :disabled="disabledButton">
+        {{ text }}
+    </button>
 </div>
 </template>
 

@@ -17,7 +17,18 @@ class User extends Authenticatable
      *
      * @var string
      */
-    protected $table = 'ticket_users';
+    protected $table = 'hakakses';
+
+    /**
+     * Custom primary key
+     * @var string
+     */
+    protected $primaryKey = 'nik';
+
+    /**
+     * Primary key is not increment
+     */
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -25,8 +36,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'username',
-        'password',
+        'nik',
+        'kode_lokasi'
     ];
 
     /**
@@ -34,16 +45,12 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-    ];
+    protected $hidden = [];
 
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'password' => 'hashed',
-    ];
+    protected $casts = [];
 }

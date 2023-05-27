@@ -22,6 +22,7 @@ const form = useForm({
     username: '',
     password: ''
 })
+
 const onSignIn = () => {
     // noinspection JSUnresolvedReference
     form.post(route('ticket.login'))
@@ -42,11 +43,11 @@ const onSignIn = () => {
                     <form @submit.prevent="onSignIn">
                         <BasicInput name="username" placeholder="Username..." id="username"
                                     labelInput="Username" v-model="form.username"
-                                    :isError="!!errors['username']" :textError="errors['username']" />
+                                    :isError="!!errors['username']" :textError="errors['username'] && errors['username']['message'] || errors['username']" />
                         <AppendInput name="password" placeholder="Password..." id="password"
                                      labelInput="Password" :type="modePassword"
                                      @on-click-input-action="toggleSecret" v-model="form.password"
-                                     :isError="!!errors['password']" :textError="errors['password']">
+                                     :isError="!!errors['password']" :textError="errors['password'] && errors['password']['message'] || errors['password']">
                             <template #default>
                                 <i v-if="modeSecret" class="bi bi-eye-fill bi-input" />
                                 <i v-else class="bi bi-eye-slash-fill bi-input"></i>
@@ -55,7 +56,7 @@ const onSignIn = () => {
                         <div class="forget-password-container">
                             <a href="#" class="forget-password">Lupa Password</a>
                         </div>
-                        <BasicButton typeButton="submit" text="Login" className="btn-primary" />
+                        <BasicButton typeButton="submit" text="Login" className="btn-primary" :disabledButton="form.processing" />
                     </form>
                 </div>
             </div>
