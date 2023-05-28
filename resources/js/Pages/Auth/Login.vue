@@ -25,7 +25,7 @@ const form = useForm({
 
 const onSignIn = () => {
     // noinspection JSUnresolvedReference
-    form.post(route('ticket.login'))
+    form.post(route('ticket.auth.login'))
 }
 </script>
 

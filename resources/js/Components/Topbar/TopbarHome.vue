@@ -21,7 +21,7 @@ const onSignOut = () => {
     }).then(result => {
         if(result.isConfirmed) {
             // noinspection JSUnresolvedReference
-            router.post(route('ticket.logout'))
+            router.post(route('ticket.auth.logout'))
         }
     });
 }

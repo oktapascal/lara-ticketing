@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Views\AuthController;
 use App\Http\Controllers\Views\HomeController;
+use App\Http\Controllers\Views\MainController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +22,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('home', [HomeController::class, 'showHomePage'])->name('page.home');
+    Route::get('main', [MainController::class, 'showMainPage'])->name('page.main');
 });
 
 Route::get('/', function () {

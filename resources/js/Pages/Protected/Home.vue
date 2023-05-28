@@ -1,5 +1,6 @@
 <script setup>
 import Layout from '../../Layouts/Home.vue'
+import { useForm } from '@inertiajs/vue3'
 
 const arrayIcon = ['icon-accounting.svg', 'icon-badge.svg', 'icon-building.svg', 'icon-chart.svg',
     'icon-office.svg', 'icon-transfer.svg'];
@@ -8,13 +9,22 @@ defineProps({
     klp_menu: Array
 })
 
+const form = useForm({
+    kode_klp_menu: null
+})
+const onClickCard = (kode_klp_menu) => {
+    form.kode_klp_menu = kode_klp_menu
+
+    // noinspection JSUnresolvedReference
+    form.post(route('ticket.auth.klpmenu'))
+}
 </script>
 
 <template>
     <Layout>
         <div class="row">
             <div class="col-md-4 col-lg-4" v-for="klpMenu in klp_menu">
-                <div class="card-portal">
+                <div class="card-portal" @click="onClickCard(klpMenu.kode_klp_menu)">
                     <div class="row">
                         <div class="col-3">
                             <img alt="icon" :src="`/image/icon/${arrayIcon[Math.random() * arrayIcon.length | 0]}`" class="icon-portal" />

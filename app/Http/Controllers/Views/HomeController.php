@@ -12,9 +12,9 @@ class HomeController extends Controller
 {
     public KelompokMenuServices $_kelompokMenuServices;
 
-    public function __construct(KelompokMenuServices $kelompokMenuServcies)
+    public function __construct(KelompokMenuServices $kelompokMenuServices)
     {
-        $this->_kelompokMenuServices = $kelompokMenuServcies;
+        $this->_kelompokMenuServices = $kelompokMenuServices;
     }
 
     public function showHomePage(Request $request): InertiaResponse

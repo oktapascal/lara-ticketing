@@ -48,6 +48,12 @@ class HandleInertiaRequests extends Middleware
                     $request->user()->only('kode_lokasi', 'status_admin', 'klp_akses')
                     :
                     NULL;
+            },
+            'klp_menu' => function() use($request) {
+                return $request->session()->get('klpMenu') ?
+                    $request->session()->get('klpMenu')
+                    :
+                    NULL;
             }
         ]);
     }
