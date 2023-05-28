@@ -1,9 +1,29 @@
 <script setup>
 import { router } from '@inertiajs/vue3'
+import {inject} from "vue";
+
+const swal = inject('$swal')
 
 const onSignOut = () => {
-    // noinspection JSUnresolvedReference
-    router.post(route('ticket.logout'))
+    swal.fire({
+        title: 'Keluar Aplikasi ?',
+        html: 'Semua halaman akses yang sama akan keluar',
+        showCancelButton: true,
+        showConfirmButton: true,
+        confirmButtonText: 'Keluar',
+        cancelButtonText: 'Batal',
+        reverseButtons: true,
+        buttonsStyling: false,
+        customClass: {
+            confirmButton: 'btn btn-primary mx-1',
+            cancelButton: 'btn btn-secondary mx-1'
+        },
+    }).then(result => {
+        if(result.isConfirmed) {
+            // noinspection JSUnresolvedReference
+            router.post(route('ticket.logout'))
+        }
+    });
 }
 </script>
 
@@ -27,7 +47,7 @@ const onSignOut = () => {
 
 <style scoped>
 .topbar {
-    position: absolute;
+    position: fixed;
     width: 100%;
     background-color: #ffffff;
     top: 0;

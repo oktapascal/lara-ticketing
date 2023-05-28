@@ -44,7 +44,10 @@ class HandleInertiaRequests extends Middleware
                 ];
             },
             'auth.user' => function() use($request) {
-                return $request->user() ? $request->user()->only('kode_lokasi', 'status_admin') : NULL;
+                return $request->user() ?
+                    $request->user()->only('kode_lokasi', 'status_admin', 'klp_akses')
+                    :
+                    NULL;
             }
         ]);
     }

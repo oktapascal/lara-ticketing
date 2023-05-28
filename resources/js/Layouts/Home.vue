@@ -21,6 +21,6 @@
     background-size: cover;
 }
 .content-container {
-    padding-top: 5rem;
+    padding: 10rem 5rem 0 5rem;
 }
 </style>

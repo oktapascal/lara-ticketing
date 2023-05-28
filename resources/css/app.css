@@ -18,9 +18,25 @@
     --bs-btn-active-border-color: #730403;
 }
 
+.btn-secondary {
+    --bs-btn-bg: #ececec;
+    --bs-btn-border-color: #ececec;
+    --bs-btn-color: #000000;
+    --bs-btn-hover-color: #000000;
+    --bs-btn-hover-bg: #d4d4d4;
+    --bs-btn-hover-border-color: #d4d4d4;
+    --bs-btn-active-bg: #bcbcbc;
+    --bs-btn-active-border-color: #bcbcbc;
+}
+
 .btn:disabled {
     cursor: not-allowed;
     opacity: unset;
     pointer-events: initial;
+}
+
+.mx-1 {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
 }
 
