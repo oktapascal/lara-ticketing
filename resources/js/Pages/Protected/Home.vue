@@ -1,114 +1,27 @@
 <script setup>
 import Layout from '../../Layouts/Home.vue'
+
+const arrayIcon = ['icon-accounting.svg', 'icon-badge.svg', 'icon-building.svg', 'icon-chart.svg',
+    'icon-office.svg', 'icon-transfer.svg'];
+
+defineProps({
+    klp_menu: Array
+})
+
 </script>
 
 <template>
     <Layout>
         <div class="row">
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-4 col-lg-4" v-for="klpMenu in klp_menu">
                 <div class="card-portal">
                     <div class="row">
                         <div class="col-3">
-                            <img alt="icon" src="/image/icon/icon-accounting.svg" class="icon-portal" />
+                            <img alt="icon" :src="`/image/icon/${arrayIcon[Math.random() * arrayIcon.length | 0]}`" class="icon-portal" />
                         </div>
                         <div class="col-6 self-center">
                             <p class="text-portal">
-                                Menu Admin 1
-                            </p>
-                        </div>
-                        <div class="col-3 self-center">
-                            <div class="action-portal">
-                                <i class="bi bi-arrow-right"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4">
-                <div class="card-portal">
-                    <div class="row">
-                        <div class="col-3">
-                            <img alt="icon" src="/image/icon/icon-badge.svg" class="icon-portal" />
-                        </div>
-                        <div class="col-6 self-center">
-                            <p class="text-portal">
-                                Menu Admin 2
-                            </p>
-                        </div>
-                        <div class="col-3 self-center">
-                            <div class="action-portal">
-                                <i class="bi bi-arrow-right"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4">
-                <div class="card-portal">
-                    <div class="row">
-                        <div class="col-3">
-                            <img alt="icon" src="/image/icon/icon-building.svg" class="icon-portal" />
-                        </div>
-                        <div class="col-6 self-center">
-                            <p class="text-portal">
-                                Menu Admin 3
-                            </p>
-                        </div>
-                        <div class="col-3 self-center">
-                            <div class="action-portal">
-                                <i class="bi bi-arrow-right"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4">
-                <div class="card-portal">
-                    <div class="row">
-                        <div class="col-3">
-                            <img alt="icon" src="/image/icon/icon-chart.svg" class="icon-portal" />
-                        </div>
-                        <div class="col-6 self-center">
-                            <p class="text-portal">
-                                Menu Admin 4
-                            </p>
-                        </div>
-                        <div class="col-3 self-center">
-                            <div class="action-portal">
-                                <i class="bi bi-arrow-right"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4">
-                <div class="card-portal">
-                    <div class="row">
-                        <div class="col-3">
-                            <img alt="icon" src="/image/icon/icon-office.svg" class="icon-portal" />
-                        </div>
-                        <div class="col-6 self-center">
-                            <p class="text-portal">
-                                Menu Admin 5
-                            </p>
-                        </div>
-                        <div class="col-3 self-center">
-                            <div class="action-portal">
-                                <i class="bi bi-arrow-right"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4">
-                <div class="card-portal">
-                    <div class="row">
-                        <div class="col-3">
-                            <img alt="icon" src="/image/icon/icon-transfer.svg" class="icon-portal" />
-                        </div>
-                        <div class="col-6 self-center">
-                            <p class="text-portal">
-                                Menu Admin 6
+                                {{ klpMenu.nama_klp_menu }}
                             </p>
                         </div>
                         <div class="col-3 self-center">
