@@ -1,11 +1,15 @@
 <script setup>
-
+    import Layout from '../../Layouts/Main.vue'
 </script>
 
 <template>
-    <div>
-        ini halaman dashboard yang belum dibuat
-    </div>
+    <Layout>
+        <template #default>
+            <div>
+                ini halaman dashboard yang belum dibuat
+            </div>
+        </template>
+    </Layout>
 </template>
 
 <style scoped>

@@ -1,30 +1,30 @@
 <script setup>
-    defineProps({
-        modelValue: {
-            type: String,
-            default: '',
-            required: true
-        },
-        type: {
-            type: String,
-            default: 'text'
-        },
-        name: String,
-        id: String,
-        placeholder: {
-            type: String,
-            default: 'Isi field ini...'
-        },
-        className: String,
-        labelInput: String,
-        isError: {
-            type: Boolean,
-            default: false
-        },
-        textError: String
-    })
+defineProps({
+    modelValue: {
+        type: String,
+        default: '',
+        required: true
+    },
+    type: {
+        type: String,
+        default: 'text'
+    },
+    name: String,
+    id: String,
+    placeholder: {
+        type: String,
+        default: 'Isi field ini...'
+    },
+    className: String,
+    labelInput: String,
+    isError: {
+        type: Boolean,
+        default: false
+    },
+    textError: String
+})
 
-    defineEmits(['update:modelValue'])
+defineEmits(['update:modelValue'])
 </script>
 
 <template>
@@ -58,6 +58,9 @@
     .form-control:focus {
         outline: none;
         box-shadow: none;
+        border-width: 0.094rem;
+        border-style: solid;
+        border-color: var(--bs-blue);
     }
     .error-container {
         position: relative;

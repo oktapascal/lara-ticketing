@@ -53,23 +53,11 @@ const onSignOut = () => {
     top: 0;
     padding: 1rem 2.5rem;
     opacity: 0.7;
-    box-shadow: 0px 4px 6px rgba(88, 88, 88, 0.25);
+    box-shadow: 0 4px 6px rgba(88, 88, 88, 0.25);
 }
 .title-topbar {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0;
-}
-.image-topbar {
-    height: 1.9rem;
-    width: 9rem;
-    margin: 0 auto;
-    display: block;
-}
-.align-center {
-    align-self: center;
-}
-.pull-right {
-    float: right;
 }
 </style>

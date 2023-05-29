@@ -10,10 +10,10 @@
 </template>
 
 <style>
-    .pr-0 {
-       padding-right: 0;
-    }
-    .pl-0 {
-        padding-left: 0;
-    }
+.pr-0 {
+   padding-right: 0;
+}
+.pl-0 {
+    padding-left: 0;
+}
 </style>

@@ -14,29 +14,29 @@
 </template>
 
 <style>
-    .container-image {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 10vh;
-    }
-    .text-title {
-        font-weight: 700;
-        font-size: 2.625rem;
-        text-align: center;
-        padding-left: 10rem;
-        padding-right: 10rem;
-    }
-    .text-blue {
-        color: #365CB4;
-    }
-    .self-center {
-        align-self: center;
-    }
-    .image-login {
-        height: 380px;
-        width: 475px;
-    }
+.container-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 10vh;
+}
+.text-title {
+    font-weight: 700;
+    font-size: 2.625rem;
+    text-align: center;
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+.text-blue {
+    color: #365CB4;
+}
+.self-center {
+    align-self: center;
+}
+.image-login {
+    height: 380px;
+    width: 475px;
+}
 </style>

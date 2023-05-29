@@ -1,5 +1,5 @@
 <script setup>
-    import TopbarHome from '../Components/Topbar/TopbarHome.vue';
+import TopbarHome from '../Components/Topbar/TopbarHome.vue';
 </script>
 
 <template>
@@ -15,7 +15,7 @@
 .home-container {
     height: 100vh;
     width: 100vw;
-    background-image: url('/image/background/bg-main.jpg');
+    background-image: url('../../../public/image/background/bg-main.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
