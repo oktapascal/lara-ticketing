@@ -16,7 +16,7 @@ const onClickCard = (kode_klp_menu) => {
     form.kode_klp_menu = kode_klp_menu
 
     // noinspection JSUnresolvedReference
-    form.post(route('ticket.auth.klpmenu'))
+    form.post(route('tkm.auth.klpmenu.update'))
 }
 </script>
 
@@ -36,7 +36,8 @@ const onClickCard = (kode_klp_menu) => {
                         </div>
                         <div class="col-3 self-center">
                             <div class="action-portal">
-                                <i class="bi bi-arrow-right"/>
+                                <img alt="action-portal" src="/image/icon/icon-live.svg" v-if="$page.props.modules === klpMenu.kode_klp_menu"/>
+                                <i v-else class="bi bi-arrow-right"/>
                             </div>
                         </div>
                     </div>

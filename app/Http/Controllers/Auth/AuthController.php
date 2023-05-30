@@ -37,7 +37,7 @@ class AuthController extends Controller
 
     public function setKelompokMenu(Request $request): RedirectResponse
     {
-        $request->session()->put('klpMenu', $request->input('kode_klp_menu'));
+        $request->session()->put('modules', $request->input('kode_klp_menu'));
 
         return Redirect::route('page.main');
     }

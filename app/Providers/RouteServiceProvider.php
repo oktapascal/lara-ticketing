@@ -37,8 +37,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
             Route::middleware('web')
-                ->prefix('ticket-auth')
-                ->group(base_path('routes/ticket/auth.php'));
+                ->prefix('tkm-auth')
+                ->group(base_path('routes/tkm/auth.php'));
         });
     }
 }

@@ -49,9 +49,9 @@ class HandleInertiaRequests extends Middleware
                     :
                     NULL;
             },
-            'klp_menu' => function() use($request) {
-                return $request->session()->get('klpMenu') ?
-                    $request->session()->get('klpMenu')
+            'modules' => function() use($request) {
+                return $request->session()->get('modules') ?
+                    $request->session()->get('modules')
                     :
                     NULL;
             }

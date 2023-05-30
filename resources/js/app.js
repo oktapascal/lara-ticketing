@@ -10,7 +10,7 @@ import 'sweetalert2/dist/sweetalert2.min.css'
 import tooltip from "bootstrap/js/src/tooltip.js";
 
 createInertiaApp({
-    title: (title) => 'Esaku Ticketing',
+    title: (title) => 'Esaku TKM',
     resolve: name => {
         const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
         return pages[`./Pages/${name}.vue`]

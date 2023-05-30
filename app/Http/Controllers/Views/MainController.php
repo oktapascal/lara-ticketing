@@ -15,7 +15,7 @@ class MainController extends Controller
     {
         $user = $request->user();
 
-        if(!$request->session()->get('klpMenu')) {
+        if(!$request->session()->get('modules')) {
             return Redirect::route('page.home');
         }
 
