@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import IconButton from '../Buttons/IconButton.vue'
+import TopbarModulNavigation from './TopbarModulNavigation.vue'
 
 const el = document.documentElement
 
@@ -12,6 +13,10 @@ const clickNotification = ref(false)
 
 const onClickedPortal = () => {
     clickedPortal.value = !clickedPortal.value
+}
+
+const onClickedHidePortal = () => {
+    clickedPortal.value = false
 }
 
 const onClickedZoom = () => {
@@ -51,25 +56,20 @@ const onClickedNotification = () => {
                         @onClick="onClickedPortal">
                 <img alt="icon-apps" src="/image/icon/icon-apps.png" class="icon-topbar"/>
             </IconButton>
+            <TopbarModulNavigation @onToggleNavigationModul="onClickedHidePortal" v-if="clickedPortal" />
         </div>
         <div class="grid-content">
-            <IconButton tooltipPlacement="bottom" tooltipText="Zoom"
-                        :isActive="clickedZoom"
-                        @onClick="onClickedZoom">
+            <IconButton tooltipPlacement="bottom" tooltipText="Zoom" @onClick="onClickedZoom">
                 <img alt="icon-apps" src="/image/icon/icon-zoom.png" class="icon-topbar"/>
             </IconButton>
         </div>
         <div class="grid-content">
-            <IconButton tooltipPlacement="bottom" tooltipText="New Tab"
-                        :isActive="clickedCopy"
-                        @onClick="onClickedCopy">
+            <IconButton tooltipPlacement="bottom" tooltipText="New Tab" @onClick="onClickedCopy">
                 <img alt="icon-apps" src="/image/icon/icon-copy.png" class="icon-topbar"/>
             </IconButton>
         </div>
         <div class="grid-content">
-            <IconButton tooltipPlacement="bottom" tooltipText="Reload"
-                        :isActive="clickedRefresh"
-                        @onClick="onClickedRefresh">
+            <IconButton tooltipPlacement="bottom" tooltipText="Reload" @onClick="onClickedRefresh">
                 <img alt="icon-apps" src="/image/icon/icon-refresh.png" class="icon-topbar"/>
             </IconButton>
         </div>
@@ -91,6 +91,7 @@ const onClickedNotification = () => {
 .grid-content {
     padding-left: 0.3rem;
     padding-right: 0.3rem;
+    position: relative;
 }
 .icon-topbar {
     height: 1.25rem;

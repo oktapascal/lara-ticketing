@@ -30,7 +30,7 @@ const onSignOut = () => {
 <template>
     <div class="topbar">
         <div class="row">
-            <div class="col-4 align-center">
+            <div class="col-4 self-center">
                 <h6 class="title-topbar">Menu Portal</h6>
             </div>
             <div class="col-4">

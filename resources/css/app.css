@@ -49,7 +49,7 @@
     margin: 0 auto;
     display: block;
 }
-.align-center {
+.self-center {
     align-self: center;
 }
 .pull-right {
