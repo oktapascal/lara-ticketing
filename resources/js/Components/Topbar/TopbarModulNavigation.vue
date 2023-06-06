@@ -1,14 +1,46 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
+import { router, useForm } from "@inertiajs/vue3"
 import { onClickOutside } from '@vueuse/core'
 
+const arrayIcon = ['icon-accounting.svg', 'icon-badge.svg', 'icon-building.svg', 'icon-chart.svg',
+    'icon-office.svg', 'icon-transfer.svg'];
+
 const target = ref(null)
+let modules = reactive([]);
 
 const emits = defineEmits(['onToggleNavigationModul'])
+
+const form = useForm({
+    kode_klp_menu: null
+})
 
 const toggleNavigationModule = () => {
     emits('onToggleNavigationModul')
 }
+
+const onRedirectToHome = () => {
+    // noinspection JSUnresolvedReference
+    router.get(route('page.home'))
+}
+
+const getListModules = async () => {
+    // noinspection JSUnresolvedReference
+    const result = await axios.get(route('tkm.auth.klpmenu.all'))
+
+    modules.push(...result.data.result)
+}
+
+const onClickModule = (kode_klp_menu) => {
+    form.kode_klp_menu = kode_klp_menu
+
+    // noinspection JSUnresolvedReference
+    form.post(route('tkm.auth.klpmenu.update'))
+}
+
+onMounted(async () => {
+    await getListModules()
+})
 
 onClickOutside(target, (event) => toggleNavigationModule())
 </script>
@@ -20,33 +52,23 @@ onClickOutside(target, (event) => toggleNavigationModule())
         </div>
         <div class="card-body">
             <ul class="list-modul">
-                <li>
+                <li v-for="module in modules" @click="onClickModule(module.kode_klp_menu)">
                     <div class="row">
                         <div class="col-2">
-                            <img alt="icon-module" src="/image/icon/icon-building.svg" class="icon-modul" />
+                            <img alt="icon-module" :src="`/image/icon/${arrayIcon[Math.random() * arrayIcon.length | 0]}`" class="icon-modul" />
                         </div>
-                        <div class="col-7 text-modul self-center">Admin TKM</div>
-                        <div class="col-3 self-center text-right">
-                            <i class="bi bi-caret-right-fill"></i>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="row">
-                        <div class="col-2">
-                            <img alt="icon-module" src="/image/icon/icon-building.svg" class="icon-modul" />
-                        </div>
-                        <div class="col-7 text-modul self-center">Admin TKM</div>
-                        <div class="col-3 self-center">
-                            <div class="modul-used">
+                        <div class="col-7 text-modul self-center">{{ module.nama_klp_menu }}</div>
+                        <div class="col-3 self-center" :class="{'text-right': $page.props.modules !== module.kode_klp_menu }">
+                            <div v-if="$page.props.modules === module.kode_klp_menu" class="modul-used">
                                 Sekarang
                             </div>
+                            <i v-else class="bi bi-caret-right-fill"></i>
                         </div>
                     </div>
                 </li>
             </ul>
             <div class="modul-all-container">
-                <button type="button" class="btn-all-modul">Show All Button</button>
+                <button type="button" class="btn-all-modul" @click="onRedirectToHome">Show All Button</button>
             </div>
         </div>
     </div>
