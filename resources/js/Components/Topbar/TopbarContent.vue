@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { usePage } from '@inertiajs/vue3'
 import IconButton from '../Buttons/IconButton.vue'
 import TopbarModulNavigation from './TopbarModulNavigation.vue'
+import TopbarUserBox from './TopbarUserBox.vue';
 
 const el = document.documentElement
 
@@ -14,7 +15,8 @@ const clickedPortal = ref(false)
 const clickedZoom = ref(false)
 const clickedCopy = ref(false)
 const clickedRefresh = ref(false)
-const clickNotification = ref(false)
+const clickedNotification = ref(false)
+const clickedUserBox = ref(false)
 
 const onClickedPortal = () => {
     clickedPortal.value = !clickedPortal.value
@@ -49,7 +51,15 @@ const onClickedRefresh = () => {
 }
 
 const onClickedNotification = () => {
-    clickNotification.value = !clickNotification.value
+    clickedNotification.value = !clickedNotification.value
+}
+
+const onClickedUserButton = () => {
+    clickedUserBox.value = !clickedUserBox.value
+}
+
+const onClickedHideUserBox = () => {
+    clickedUserBox.value = false
 }
 </script>
 
@@ -86,10 +96,11 @@ const onClickedNotification = () => {
             </IconButton>
         </div>
         <div class="grid-content">
-            <button type="button" class="button-user">
+            <button type="button" class="button-user" @click="onClickedUserButton">
                 {{ user.nik }}
                 <i class="bi bi-caret-down-fill btn-icon"></i>
             </button>
+            <TopbarUserBox v-if="clickedUserBox" :user="user" @onToggleUserBox="onClickedHideUserBox" />
         </div>
     </div>
 </template>
