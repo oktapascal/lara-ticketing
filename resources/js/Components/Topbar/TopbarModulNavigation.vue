@@ -42,7 +42,9 @@ onMounted(async () => {
     await getListModules()
 })
 
-onClickOutside(target, (event) => toggleNavigationModule())
+onClickOutside(target, () => {
+    toggleNavigationModule();
+})
 </script>
 
 <template>

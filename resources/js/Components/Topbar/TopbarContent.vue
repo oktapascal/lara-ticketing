@@ -1,9 +1,14 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { usePage } from '@inertiajs/vue3'
 import IconButton from '../Buttons/IconButton.vue'
 import TopbarModulNavigation from './TopbarModulNavigation.vue'
 
 const el = document.documentElement
+
+const page = usePage()
+
+const user = computed(() => page.props.auth.user)
 
 const clickedPortal = ref(false)
 const clickedZoom = ref(false)
@@ -80,6 +85,12 @@ const onClickedNotification = () => {
                 <img alt="icon-apps" src="/image/icon/icon-notification.png" class="icon-topbar"/>
             </IconButton>
         </div>
+        <div class="grid-content">
+            <button type="button" class="button-user">
+                {{ user.nik }}
+                <i class="bi bi-caret-down-fill btn-icon"></i>
+            </button>
+        </div>
     </div>
 </template>
 
@@ -96,5 +107,26 @@ const onClickedNotification = () => {
 .icon-topbar {
     height: 1.25rem;
     width: 1.25rem;
+}
+.button-user {
+    background-color: #ffffff;
+    outline: none;
+    border: none;
+    color: #878787;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.25rem;
+}
+.button-user:hover {
+    background-color: rgba(236, 236, 236, 0.7);
+}
+.button-user:active {
+    background-color: rgba(216, 216, 216, 0.7);
+}
+.button-user .btn-icon {
+    color: #000000;
+    margin-left: 1rem;
 }
 </style>
